@@ -16,6 +16,7 @@ import dynamicParam from './operData/dynamicParam';
 // auth 登录相关
 Mock.mock(/login/, 'post', auth.login);
 Mock.mock(/getUser/, 'get', auth.getUser);
+Mock.mock(/getMenus/, 'get', auth.getMenus);
 
 // 表单 - 动态参数显示
 Mock.mock(/getTableData/, 'get', dynamicParam.getTableData);
