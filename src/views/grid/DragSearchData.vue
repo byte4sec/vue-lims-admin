@@ -3,7 +3,12 @@
     <el-col :span="12">
       <el-card class="title-card">
         <template slot="header">待选</template>
-        <el-input placeholder="请输入内容" clearable v-model="leftQuery" class="mar-b-sm" @keyup.enter.native="onQueryLeft">
+        <el-input
+          placeholder="请输入内容"
+          clearable
+          v-model="leftQuery"
+          class="mar-b-sm"
+          @keyup.enter.native="onQueryLeft">
           <el-button slot="append" @click="onQueryLeft">
             <i class="fas fa-search"></i>
           </el-button>
@@ -27,7 +32,12 @@
     <el-col :span="12">
       <el-card class="title-card">
         <template slot="header">已选</template>
-        <el-input placeholder="请输入内容" clearable v-model="rightQuery" class="mar-b-sm" @keyup.enter.native="onQueryRight">
+        <el-input
+          placeholder="请输入内容"
+          clearable
+          v-model="rightQuery"
+          class="mar-b-sm"
+          @keyup.enter.native="onQueryRight">
           <el-button slot="append" @click="onQueryRight">
             <i class="fas fa-search"></i>
           </el-button>
