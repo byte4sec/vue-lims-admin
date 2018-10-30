@@ -4,7 +4,7 @@
     <layout-sidebar class="g-side" />
     <main :class="{ 'g-main': 1, 'is-extend': isExtend }">
       <transition name="fade-move" mode="out-in">
-        <keep-alive :include="cachedViews">
+        <keep-alive :include="cachedViews" :max="10">
           <router-view />
         </keep-alive>
       </transition>
@@ -26,7 +26,7 @@ export default {
       return this.$store.state.isCollapseSide || '';
     },
     cachedViews() {
-      return this.$store.state.tagsView.cachedViews || [];
+      return ['Embed', ...this.$store.state.tagsView.cachedViews];
     },
   },
 };
