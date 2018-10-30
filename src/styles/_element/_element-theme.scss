@@ -1,0 +1,412 @@
+// Element UI 覆盖主题样式
+
+
+
+/* Row 栅格
+-------------------------- */
+
+
+
+/* Radio 单选框
+-------------------------- */
+.el-radio {
+
+  .el-radio__input.is-disabled + span.el-radio__label {
+    color: $--disabled-color-base;
+  }
+}
+
+
+
+/* Checkbox 多选框
+-------------------------- */
+
+
+
+/* Input 输入框
+-------------------------- */
+
+
+
+/* InputNumber 计数器
+-------------------------- */
+
+
+
+/* Select 选择器
+-------------------------- */
+
+
+
+/* Cascader 级联选择器
+-------------------------- */
+
+
+
+/* Switch 开关
+-------------------------- */
+
+
+
+/* Button 按钮
+-------------------------- */
+.el-button--mini, .el-button--mini.is-round {
+  padding: 7px 10px;
+}
+
+
+
+/* Slider 滑块
+-------------------------- */
+
+
+
+/* TimePicker 时间选择器
+-------------------------- */
+
+
+
+/* DatePicker 日期选择器
+-------------------------- */
+
+
+
+/* DateTimePicker 日期时间选择器
+-------------------------- */
+
+
+
+/* Upload 上传
+-------------------------- */
+
+
+
+/* ColorPicker 颜色选择器
+-------------------------- */
+
+
+
+/* Transfer 穿梭框
+-------------------------- */
+
+
+
+/* Form 表单
+-------------------------- */
+.el-form {
+
+  // 宽度充满
+  &.el-form--label-right {
+    .el-date-editor, .el-select { width: 100%; }
+  }
+
+  .el-form-item {
+    // 隐藏了提示，减少表单项的上下间隔
+    margin-bottom: 5px;
+
+    // 默认隐藏提示
+    .el-form-item__error { display: none; }
+
+    // 悬浮验证提示
+    &:hover .el-form-item__error {
+      $color: #303133;
+      $bg: #f8f8f8;
+
+      display: block;
+      margin-top: 4px;
+      padding: 10px 17px;
+      z-index: 3500;
+
+      color: $color;
+      background-color: $bg;
+      border: 1px solid draken($bg, 30%);
+      border-radius: 4px;
+      box-shadow: 1px 1px 2px $--border-color-light;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: 10px;
+        width: 0;
+        height: 0;
+        border: {
+          width: 6px;
+          style: solid;
+          color: transparent transparent $bg transparent;
+        }
+      };
+    }
+  }
+}
+
+
+
+/* Table 表格
+-------------------------- */
+.el-table {
+
+  $index: '2';  // 序号所在列
+
+  // 宽度自适应
+  width: 100%;
+
+  // 高度填充
+  &[full] {
+    height: auto;
+    min-height: calc(100% - 122px);
+  }
+  &[full="2"] {
+    min-height: calc(100% - (110px + 50px * 2));
+  }
+  &[full="3"] {
+    min-height: calc(100% - (110px + 50px * 3));
+  }
+
+  // 序号列默认不换行, 以对 padding 的充分利用
+  .el-table__header-wrapper, .el-table__body {
+    .el-table_1_column_#{$index} div.cell {
+      white-space: nowrap;
+    }
+  }
+
+  // 表格单元格尺寸
+  td, th { padding: 5px 0; }
+
+  // 表格内图标按钮间距
+  .el-table__row .el-button {
+    padding: 7px 8px;
+    &:not(:first-child) { margin-left: 5px; }
+  }
+
+  // 避免全局 mini 下表格字体过小问题
+  &.el-table--mini { font-size: 13px !important; }
+}
+
+
+
+/* Tag 标签
+-------------------------- */
+.el-tag--grey {
+  background-color: $--disabled-fill-base;
+  border-color: $--disabled-color-base;
+  color: $--disabled-color-base;
+}
+
+
+
+/* Progress 进度条
+-------------------------- */
+
+
+
+/* Tree 树形控件
+-------------------------- */
+.el-tree {
+
+  // 带图标节点样式调整
+  .el-tree__icon i { padding-right: 5px; color: $--color-info; }
+}
+
+
+
+/* Pagination 分页
+-------------------------- */
+
+
+
+/* Badge 标记
+-------------------------- */
+
+
+
+/* NavMenu 导航菜单
+-------------------------- */
+.el-menu--collapse .el-menu .el-submenu, .el-menu--popup {
+  min-width: $g-side-max-width;
+}
+
+
+/* Tabs 标签页
+-------------------------- */
+.el-tabs {
+
+  &.el-tabs--border-card > .el-tabs__content {
+    padding: $padding;
+  }
+
+  .el-tabs__header { margin: 0 0 10px; }
+
+  .el-card {
+    border: none;
+    box-shadow: none;
+    .el-card__header {
+      padding: 10px;
+    }
+  }
+}
+
+
+
+/* Breadcrumb 面包屑
+-------------------------- */
+.el-breadcrumb { display: inline-block; }
+
+
+
+/* Dropdown 下拉菜单
+-------------------------- */
+.el-dropdown-menu {
+  &.el-popper .el-dropdown-menu__item > i { margin-right: 10px; }
+}
+
+
+/* Steps 步骤条
+-------------------------- */
+
+
+
+/* Dialog 对话框
+-------------------------- */
+.el-dialog {
+  margin: 5vh auto auto !important;
+
+  // 消除内边距
+  &.pad-t-0 .el-dialog__body { padding-top: 0 !important; }
+  &.pad-b-0 .el-dialog__body { padding-bottom: 0 !important; }
+  &.pad-l-0 .el-dialog__body { padding-left: 0 !important; }
+  &.pad-r-0 .el-dialog__body { padding-right: 0 !important; }
+
+  // 设置默认内边距
+  .el-dialog__header, .el-dialog__body, .el-dialog__footer {
+    padding: $padding $padding + 5px;
+  }
+
+  // 标题栏
+  .el-dialog__header {
+    font-size: 14px;
+    line-height: 0;
+    background-color: $--background-color-base;
+    border: 1px solid $--border-color-light;
+
+    .el-dialog__title {
+      font-size: 15px;
+      line-height: 20px;
+    }
+  }
+
+  // 标题栏右侧功能按钮
+  .el-dialog__headerbtn {
+    position: absolute;
+    top: $padding + 3px !important;
+    font-size: $--alert-icon-size;
+
+    &:nth-last-child(1) { right: $padding + 5px; }
+    &:nth-last-child(2) { right: $padding + 30px; }
+    &:nth-last-child(3) { right: $padding + 55px; }
+    &:nth-last-child(4) { right: $padding + 80px; }
+    &:nth-last-child(n + 5) { display: none; }
+
+    i {
+      color: $--color-info;
+      &:hover { color: $--color-primary; }
+    }
+  }
+
+  .el-dialog__footer { border-top: $--tab-border-line; }
+
+  // 清除弹框选项卡标题上边距过高
+  .el-tabs .el-tabs__header { margin-top: -10px; }
+
+  .el-card .el-card__body { padding-top: 0; }
+
+  &.is-fullscreen {
+    margin: 0 auto auto !important;
+  }
+}
+
+
+/* Tooltip 文字提示
+-------------------------- */
+
+
+
+/* Popover 弹出框
+-------------------------- */
+
+
+
+/* Card 卡片
+-------------------------- */
+.el-card {
+
+  &[full] {
+    height: 100%;
+    .el-card__body {
+      height: calc(100% - 50px );
+      .el-table[full] {
+        min-height: calc(100% - 72px)
+      }
+    }
+  }
+
+  // 表单项与分割线的间隔过大
+  .el-card__header {
+    padding: 10px 10px 0;
+    .el-form-item { margin-bottom: 10px; }
+  }
+
+  .el-card__body {
+    padding: $padding;
+  }
+}
+
+// 嵌套卡片边框隐藏
+.el-card .el-card {
+  border: none;
+  box-shadow: none;
+
+  .el-card__header { padding: 0; }
+
+  .el-card__body { padding: 10px 0 0; }
+}
+
+// 带标题卡片
+.el-card.title-card {
+
+  .el-card__header {
+    position: relative;
+    padding: 10px 15px;
+    background-color: $--background-color-base;
+  }
+
+  .el-card__title { line-height: 17px; }
+
+  .el-card__headerbtn {
+    $padding: 15px;
+    position: absolute;
+    top: 11px;
+    cursor: pointer;
+
+    &:nth-last-child(1) { right: $padding; }
+    &:nth-last-child(2) { right: $padding + 19px; }
+    &:nth-last-child(3) { right: $padding + 19px * 2; }
+    &:nth-last-child(n + 4) { display: none; }
+
+    i {
+      padding-top: 2px;
+      color: $--color-info;
+      &:hover { color: $--color-primary; }
+    }
+  }
+}
+
+
+
+/* Carousel 走马灯
+-------------------------- */
+
+
+
+/* Collapse 折叠面板
+-------------------------- */

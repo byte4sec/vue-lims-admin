@@ -1,0 +1,184 @@
+// 模块小部件
+
+/* ContextMenu 右键菜单
+ * @see components/ContextMenu.vue
+-------------------------- */
+ul.context-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 6px 0;
+  z-index: 3000;
+  color: #4B5148;
+  background-color: #fff;
+  border: 1px solid #CBCBCB;
+  box-shadow: $--box-shadow-light;
+
+  > li {
+    position: relative;
+    margin: 0;
+    padding: 0 20px;
+    line-height: 30px;
+    white-space: nowrap;
+    &:hover { background-color: #EBEBEB; }
+
+    i {
+      position: absolute;
+      left: 0;
+      display: inline-block;
+      width: 20px;
+      text-align: center;
+      color: $--color-info;
+    }
+  }
+}
+
+
+
+/* SelectTree 树形选择器
+ * @see components/SelectTree.vue
+-------------------------- */
+.select-tree {
+
+  .el-tree { max-height: 350px; }
+
+  .el-input.el-input--suffix {
+    cursor: pointer;
+
+    &.rotate .el-input__suffix {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+
+
+/* SelectPane 窗格选择器
+ * @see components/SelectPane.vue
+-------------------------- */
+.select-pane {
+
+  ul {
+    margin: 0;
+    padding: 0;
+    height: 350px;
+    border-width: 1px 1px 1px 0;
+    border-style: solid;
+    border-color: $--border-color-light;
+    overflow-y: scroll;
+  
+    li {
+      padding: 0 10px;
+      line-height: 24px;
+  
+      &.is-active { color: $--color-primary; }
+      &:hover, &.is-active { background-color: $--background-color-base; }
+    }
+  }
+
+  .flex-box {
+    display: flex;
+    width: 100%;
+    line-height: 20px;
+    > .col-item {
+      display: inline-block;
+      flex: 1;
+    }
+  }
+
+  .item-title {
+    line-height: 40px;
+    color: #000;
+  }
+
+  .item-body { border-left: 1px solid $--border-color-light; }
+
+  .dialog-footer > span {
+    float: left;
+    font-size: 1.4rem;
+    line-height: 40px;
+  }
+}
+
+
+
+/* FieldsetFlex 伸缩控件组
+ * @see components/FieldsetFlex.vue
+-------------------------- */
+fieldset.fieldset-flex {
+  overflow-x: hidden;
+
+  legend {
+    padding: 0 5px;
+    transition: $--all-transition;
+
+    &:hover { cursor: pointer; }
+
+    i {
+      font-size: 16px;
+      color: $--color-info;
+      transition: $--all-transition;
+    }
+  }
+}
+
+
+
+/* Editor 富文本编辑器
+ * @see components/tinymce/
+-------------------------- */
+.editor-tinymce {
+  position: relative;
+
+  .editor-image-box {
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    /*z-index: 2005;*/
+  }
+
+  .editor-image { display: inline-block; }
+
+  @at-root {
+    .mce-fullscreen { z-index: 1000; }
+    .tinymce-textarea {
+      visibility: hidden;
+      z-index: -1;
+    }
+    .fullscreen .editor-image-box {
+      z-index: 10000;
+      position: fixed;
+    }
+    .editor-image-upload {
+      margin-bottom: $padding;
+      /deep/ .el-upload--picture-card {
+        width: 100%;
+      }
+    }
+  }
+}
+
+
+
+/* BoundaryDrag 边界拖拽
+ * @see view/grid/BoundaryDrag
+-------------------------- */
+.boundary-drag {
+  position: relative;
+  > span:last-child {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: -5px;
+    bottom: 0;
+    width: 10px;
+    background-color: transparent;
+    z-index: 2;
+    cursor: e-resize;
+  }
+  // 扩大控制范围
+  &.is-extend > span:last-child {
+    width: 100px;
+    right: -50px;
+  }
+}

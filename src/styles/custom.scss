@@ -1,0 +1,13 @@
+// 自定义样式
+
+/* projectPmgressbar 项目进度条
+ * @see views/grid/projectPmgressbar.vue
+-------------------------- */
+.progress-success, .progress-warning, .progress-danger {
+  margin-left: -10px;
+  margin-right: -5px;
+  color: transparent;
+}
+.progress-success { background-color: $--color-success; }
+.progress-warning { background-color:$--color-warning; }
+.progress-danger { background-color: $--color-danger; }

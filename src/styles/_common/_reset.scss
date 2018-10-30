@@ -1,0 +1,80 @@
+// Reset
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: "Microsoft YaHei", Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Arial,sans-serif;
+  font-size: $--font-size-base;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+html, body, div#app, div#app > * { height: 100%; }
+
+body {
+  text-rendering: optimizeLegibility;
+  background-color: $--background-color-base;
+}
+
+body, div,
+header, footer, nav, section, aside, article,
+ul, dl, dt, dd, li,
+h1, h2, h3, h4,h5, h6,
+a, p, i, b, span,
+textarea, button, input, select, figure, figcaption {
+  padding: 0;
+  margin: 0;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  font-weight: 500;
+  list-style: none;
+  text-decoration: none;
+  border: none;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color:transparent;
+  -webkit-font-smoothing: antialiased;
+  &:hover { outline: none; }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+input[type="button"],
+input[type="submit"],
+input[type="search"],
+input[type="reset"] {
+  -webkit-appearance: none;
+}
+
+textarea {
+  -webkit-appearance: none;
+}
+
+button {
+  background: none;
+  border: none;
+  outline: none;
+}
+
+fieldset {
+  border: 1px solid $--border-color-light;
+}
+
+hr {
+  margin: 10px 0; 
+  border-width: 1px 0 0;
+  border-color: $--border-color-light;
+  &.dashed { border-style: dashed; }
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+  -webkit-tap-highlight-color: transparent;
+  -moz-tap-highlight-color: transparent;
+}

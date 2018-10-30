@@ -1,0 +1,70 @@
+@import "../_element/element-variables.scss";
+
+/* 布局参数
+-------------------------- */
+$padding: 10px;
+
+$g-head-height: 35px;                     // 顶栏 - 高度
+$g-tags-height: 30px;                     // 标签栏 - 高度
+$g-side-width: 50px;                      // 侧栏 - 收缩宽度
+$g-side-max-width: 180px;                 // 侧栏 - 展开宽度
+$g-side-item-height: 45px;                // 侧栏 - 子项高度
+$g-side-indent: $padding;                 // 侧栏 - 子项缩进
+
+
+
+/* color 配色
+-------------------------- */
+$body-color: #333;
+$body-bg: $--background-color-base;  // #f5f7fa
+
+// 滚动条颜色
+$scrollbar-color: hsla(220,4%,58%,.3);       // #DDDEE0
+$scrollbar-hover-color: hsla(220,4%,58%,.5); // #C7C8CB
+
+// 深色
+$dark-color: #fff;
+$dark-bg:    #252a2e;
+
+// 浅色
+$light-color:#000;
+$light-bg:   #f6f6f6;
+
+$active-color: $dark-color;
+$active-bg: #409EFF;
+$hover-color: $active-bg;
+$hover-bg: #1E2225;
+
+// header 顶栏
+$g-head-color: $body-color;
+$g-head-bg: $dark-color;
+
+// tags-view 标签栏
+$g-tags-color: $body-color;
+$g-tags-bg: $g-head-bg;
+$g-tags-hover-color: $body-color;
+$g-tags-hover-bg: $--border-color-light;
+$g-tags-active-color: $active-bg;
+$g-tags-active-bg: $--border-color-light;
+
+// aside 侧栏
+$g-side-color: #909399;
+$g-side-bg: $dark-bg;
+$g-side-hover-color: $active-bg;
+$g-side-hover-bg: $hover-bg;
+$g-side-active-color: $dark-color;
+$g-side-active-bg: $active-bg;
+
+// submenu 侧栏子菜单
+$g-submenu-color: $light-bg;
+$g-submenu-bg: $light-bg;
+$g-submenu-hover-color: $active-bg;
+$g-submenu-hover-bg: $hover-bg;
+$g-submenu-active-color: $dark-color;
+$g-submenu-active-bg: $active-bg;
+
+// 右键菜单
+$m-contextmenu-color: $light-color;
+$m-contextmenu-bg: #fff;
+$m-contextmenu-hover-color: $active-bg;
+$m-contextmenu-hover-bg: $light-bg;
