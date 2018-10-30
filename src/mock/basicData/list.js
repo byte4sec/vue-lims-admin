@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 export default {
   // 规则案例
   rulesDemo: {

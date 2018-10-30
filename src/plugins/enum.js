@@ -85,9 +85,9 @@ const componentType = {
 
 // 进度条状态
 const planStatus = {
-  sure: 'progress-success',
-  unsure: 'progress-warning',
-  boom: 'progress-danger',
+  'sure': 'progress-success',
+  'unsure': 'progress-warning',
+  'boom': 'progress-danger',
 };
 
 export default {

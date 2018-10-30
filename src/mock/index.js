@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import Mock from 'mockjs';
 
 // 规则详见 https://github.com/nuysoft/Mock/wiki

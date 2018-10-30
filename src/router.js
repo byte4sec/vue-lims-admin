@@ -1,14 +1,14 @@
 import { MessageBox  } from 'element-ui';
 import Vue from 'vue';
 import Router from 'vue-router';
-import store from '../store';
+import store from './store';
 
 // 默认布局
-import DefaultLayout from '../layouts/Default';
-import EmbedLayout from '../layouts/Embed';
+import DefaultLayout from './layouts/Default';
+import EmbedLayout from './layouts/Embed';
 
 // 路由懒加载
-const lazy = name => () => import(`../views/${name}`);
+const lazy = name => () => import(`./views/${name}`);
 
 Vue.use(Router);
 

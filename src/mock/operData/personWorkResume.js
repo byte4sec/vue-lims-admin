@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import Vue from 'vue';
 import Mock from 'mockjs';
 import qs from 'qs';

@@ -200,7 +200,7 @@
 </template>
 
 <script>
-import { BasicInfoRules } from '../rules';
+import { BasicInfoRules } from '../rules.js';
 
 export default {
   model: {
