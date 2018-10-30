@@ -198,33 +198,33 @@ export const asyncRoutesMap = [
     meta: { role: ['admin'], title: '综合实例', icon: 's fa-feather-alt' },
     children: [
       {
-        path: 'staffManagement',
-        name: 'staffManagement',
+        path: 'StaffManagement',
+        name: 'StaffManagement',
         meta: { role: ['admin'], title: '人员管理' },
         component: lazy('example/StaffManagement'),
       },
       {
         path: 'testProject',
         name: 'testManagement',
-        redirect: '/testProject',
+        redirect: '/TestProject',
         meta: { role: ['admin'], title: '测试管理' },
         component: EmbedLayout,
         children: [
           {
-            path: 'testProject',
-            name: 'testProject',
+            path: 'TestProject',
+            name: 'TestProject',
             meta: { role: ['admin'], title: '测试项目管理' },
             component: lazy('example/testManager/TestProject'),
           },
           {
-            path: 'analyzeProject',
-            name: 'analyzeProject',
+            path: 'AnalyzeProject',
+            name: 'AnalyzeProject',
             meta: { role: ['admin'], title: '分析项目管理' },
             component: lazy('example/testManager/AnalyzeProject'),
           },
           {
-            path: 'analyzeMethod',
-            name: 'analyzeMethod',
+            path: 'AnalyzeMethod',
+            name: 'AnalyzeMethod',
             meta: { role: ['admin'], title: '分析方法管理' },
             component: lazy('example/testManager/AnalyzeMethod'),
           },
