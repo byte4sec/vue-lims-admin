@@ -15,7 +15,7 @@ import './plugins/extend/ie';          // IE 兼容处理
 import './plugins/extend/filters';     // 全局过滤器
 import './plugins/extend/directives';  // 全局指令
 
-import './mock'; // 模拟数据
+// import './mock'; // 模拟数据
 
 import Axios from './plugins/axios';
 import Enum from './plugins/enum';
