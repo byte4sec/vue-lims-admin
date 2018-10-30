@@ -26,7 +26,7 @@ export default {
   },
   // 单步调试
   stopDebug: {
-    'tableData1|5-15': [
+    'tableData1|5': [
       {
         'itemCode|1-3': '@string(number, 6, 6)',
         'analyzeObj|2-4': '@cword',

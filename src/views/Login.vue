@@ -1,5 +1,44 @@
 <template>
-  <div class="login-wrap">
+  <el-row class="bg login-wrap">
+    <el-col :span="16" class="container">
+      <div class="container-center title-center">
+        <h1>登录标题一</h1>
+        <h3>系统小标题</h3>
+      </div>
+    </el-col>
+    <el-col :span="8" class="container">
+      <div class="over-color">
+        <el-form class="login-form" ref="loginForm" :model="loginModel">
+          <h3 class="title">System Login</h3>
+          <el-form-item prop="username">
+            <el-input v-model="loginModel.username" clearable :autofocus="!loginModel.username">
+              <i slot="prefix" class="fas fa-user"></i>
+            </el-input>
+          </el-form-item>
+          <el-form-item prop="password">
+            <el-input v-model="loginModel.password" :type="isSee ? 'text' : 'password'">
+              <i slot="prefix" class="fas fa-key"></i>
+              <i slot="suffix" :class="`el-input__icon fas fa-${isSee ? 'eye' : 'eye-slash'}`"
+                @click="isSee = !isSee"></i>
+            </el-input>
+          </el-form-item>
+          <el-checkbox v-model="loginModel.remember" class="remember">Remember Me</el-checkbox>
+          <el-button
+            type="primary"
+            style="width: 100%"
+            :loading="loading"
+            :disabled="isLoginValid"
+            @click.native.prevent="onClickLogin()">Sign in
+          </el-button>
+          <div class="qr">第三方登陆：
+            <i class="fab fa-qq"></i>
+            <i class="fab fa-weixin"></i>
+          </div>
+        </el-form>
+      </div>
+    </el-col>
+  </el-row>
+  <!-- <div class="login-wrap">
     <el-form class="login-form" ref="loginForm" :model="loginModel">
       <h3 class="title">System Login</h3>
       <el-form-item prop="username">
@@ -26,11 +65,10 @@
         <i class="fab fa-weixin"></i>
       </div>
     </el-form>
-  </div>
+  </div> -->
 </template>
 
 <script>
-
 export default {
   name: 'Login',
   data() {
@@ -73,6 +111,32 @@ export default {
   $login-drak: #889aa4;
   $login-light: #eee;
 
+  .bg {
+    background: url('../assets/bg.jpg') no-repeat fixed center;
+    background-size: cover;
+  }
+  .container {
+    position: relative;
+    height: 100%;
+    >.over-color {
+      background-color: #889aa477;
+      height: 100%;
+      width: 100%;
+    }
+  }
+  .container-center {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    &.title-center {
+      text-align: center;
+    }
+     form {
+      margin: 20px;
+    }
+  }
   .login-wrap {
     position: fixed;
     width: 100%;
