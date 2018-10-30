@@ -3,7 +3,7 @@
     <el-col :span="12">
       <el-card class="title-card">
         <template slot="header">待选</template>
-        <el-input placeholder="请输入内容" v-model="leftQuery" class="mar-b-sm" @keyup.enter.native="onQueryLeft">
+        <el-input placeholder="请输入内容" clearable v-model="leftQuery" class="mar-b-sm" @keyup.enter.native="onQueryLeft">
           <el-button slot="append" @click="onQueryLeft">
             <i class="fas fa-search"></i>
           </el-button>
@@ -27,7 +27,7 @@
     <el-col :span="12">
       <el-card class="title-card">
         <template slot="header">已选</template>
-        <el-input placeholder="请输入内容" v-model="rightQuery" class="mar-b-sm" @keyup.enter="onQueryLeft">
+        <el-input placeholder="请输入内容" clearable v-model="rightQuery" class="mar-b-sm" @keyup.enter.native="onQueryRight">
           <el-button slot="append" @click="onQueryRight">
             <i class="fas fa-search"></i>
           </el-button>
@@ -66,6 +66,8 @@ export default {
         disabled: false,
         ghostClass: 'ghost',
       },
+      recordLeft: [], // 拖拽之后记录左边列表数据
+      recordRight: [], // 拖拽之后记录左边列表数据
     };
   },
   created() {
@@ -80,6 +82,8 @@ export default {
       this.$nextTick(() => {
         this.delayedDragging = false;
       });
+      this.recordLeft = this.leftModel;
+      this.recordRight = this.rightModel;
     },
   },
   methods: {
@@ -91,13 +95,17 @@ export default {
       );
     },
     onQueryLeft() {
-      if (!this.leftQuery) {
-        this.leftModel = this.leftModel.filter(v => v.cName.indexOf(this.leftQuery) > 0);
+      if (this.leftQuery) {
+        this.leftModel = this.leftModel.filter(v => v.cName.indexOf(this.leftQuery) > -1);
+      } else {
+        this.leftModel = this.recordLeft;
       }
     },
     onQueryRight() {
-      if (!this.rightQuery) {
-        this.rightModel = this.rightModel.filter(v => v.cName.indexOf(this.rightQuery) > 0);
+      if (this.rightQuery) {
+        this.rightModel = this.rightModel.filter(v => v.cName.indexOf(this.rightQuery) > -1);
+      } else {
+        this.rightModel = this.recordRight;
       }
     },
     // 获取记录列表
@@ -105,6 +113,7 @@ export default {
       this.$http.get('api/dragSearchData').then((response) => {
         if (response.status === 200) {
           this.leftModel = response.data.rows;
+          this.recordLeft = this.leftModel;
         } else {
           this.$message.warning({
             message: response.body.message,

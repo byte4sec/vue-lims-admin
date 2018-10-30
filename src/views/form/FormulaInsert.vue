@@ -57,20 +57,40 @@ export default {
         '(', ')', '>>', '<<', '!', 'not', '&', '|', '^', '~', '&&', 'and', '||', 'or', 'if()'],
       list: [
         {
-          portName: 'abc',
-          portId: 'abc',
+          portName: 'Abs',
+          portId: 'Abs',
         },
         {
-          portName: 'efg',
-          portId: 'efg',
+          portName: 'Acos',
+          portId: 'Acos',
         },
         {
-          portName: 'hij',
-          portId: 'hjj',
+          portName: 'Asin',
+          portId: 'Asin',
         },
         {
-          portName: 'lmn',
-          portId: 'lmn',
+          portName: 'Atan',
+          portId: 'Atan',
+        },
+        {
+          portName: 'Ceiling',
+          portId: 'Ceiling',
+        },
+        {
+          portName: 'Floor',
+          portId: 'Floor',
+        },
+        {
+          portName: 'Pow',
+          portId: 'Pow',
+        },
+        {
+          portName: 'Exp',
+          portId: 'Exp',
+        },
+        {
+          portName: 'IEEERemainder',
+          portId: 'IEEERemainder',
         },
       ],
       tableData: [
@@ -126,11 +146,13 @@ export default {
       this.endIndex = false;
     },
     onClick() {
-      this.value = this.monitorModel;
-      this.insert();
+      if (this.monitorModel) {
+        this.value = `${this.monitorModel}()`;
+        this.insert();
+      }
     },
     insertData(scope) {
-      this.value = scope.row.parameterName;
+      this.value = `[${scope.row.parameterName}]`;
       this.insert();
     },
   },
