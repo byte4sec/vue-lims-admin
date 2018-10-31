@@ -66,7 +66,7 @@ export default {
       tableData: [],
       formData: {},
       rowData: {},
-      dropForm: false,
+      dropForm: true,
       pager: {
         size: 15,
         page: 1,

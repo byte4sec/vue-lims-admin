@@ -51,9 +51,9 @@ export default {
       tinymceModel: '',
       // 初始化配置项
       initEditor: {
-        language_url: '/tinymce/zh_CN.js',
+        language_url: '/static/tinymce/zh_CN.js',
         language: 'zh_CN',
-        skin_url: '/tinymce/skins/lightgray',
+        skin_url: '/static/tinymce/skins/lightgray',
         height: 300,
         branding: false,
         plugins,
