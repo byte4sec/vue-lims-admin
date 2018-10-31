@@ -5,7 +5,7 @@
       <span>进度条列表列表</span>
     </div>
     <!-- 表格内容 -->
-    <el-table ref="multipleTable" :data="tableData" :show-overflow-tooltip="true">
+    <el-table ref="multipleTable" :data="tableData" :show-overflow-tooltip="true" full>
       <el-table-column type="index" align="center" width="60px"></el-table-column>
       <el-table-column type="selection" align="center" width="60px"></el-table-column>
       <el-table-column label="操作" align="center" width="95px">

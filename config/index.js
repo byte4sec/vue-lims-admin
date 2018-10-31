@@ -20,6 +20,29 @@ module.exports = {
           '^/api': '/api'
         }
       },
+      '/auth': {
+        target: 'http://192.168.11.65:8763/sinoyd-auth/auth/',
+        changeOrigin: true,
+        autoRewrite: true,
+        pathRewrite: {
+          '^/auth': ''
+        }
+      },
+      '/sys': {
+        target: 'http://192.168.11.65:8763/sinoyd-frame/sys/',
+        changeOrigin: true,
+        autoRewrite: true,
+        pathRewrite: {
+          '^/sys': ''
+        }
+      },
+      '/storage': {
+        target: 'http://192.168.11.65:9001',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/storage': '/storage'
+        }
+      }
     },
 
     // Various Dev Server settings

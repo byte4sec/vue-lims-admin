@@ -14,6 +14,7 @@ const state = {
     : false,
   name: {},                  // 用户名
   roles: [],                 // 用户角色
+  userMenus: [],
   routers: routesMap || [],  // 路由
   addRouters: [],            // 动态路由
   oldTimer: '',
@@ -38,6 +39,13 @@ const mutations = {
   },
   SetRoles(state, roles) {
     state.roles = roles;
+  },
+  SetMenu(state, menu) {
+    if (menu.length > 0) {
+      state.userMenus = menu[0].children;
+    } else {
+      state.userMenus = [];
+    }
   },
   Logout(state) {
     window.localStorage.removeItem('jwtToken');
@@ -93,6 +101,23 @@ const actions = {
         resolve();
       }, ({ response }) => {
         Vue.hp.resp(response);
+        this.$router.push({ name: 'Login' });
+        reject();
+      });
+    });
+  },
+  // 获取用户菜单
+  GetMenu({ commit }, params) {
+    return new Promise((resolve, reject) => {
+      Vue.http.get(`../sys/users/${params}/permission/nav-menus/tree`, {
+        params: { webAppGuid: 'ed2a6d6827294cd4bde077b0b7fe2687' },
+      }).then((response) => {
+        if (response.data.success) {
+          commit('SetMenu', response.data.data);
+        }
+        resolve();
+      }, ({ response }) => {
+        Vue.sys.alarmResponse(response);
         reject();
       });
     });

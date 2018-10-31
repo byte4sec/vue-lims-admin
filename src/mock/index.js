@@ -50,5 +50,8 @@ Mock.mock(/api\/operateTree/, 'get', list.operateTree);
 // 布局 - 拖拽与检索数据
 Mock.mock(/api\/dragSearchData/, 'get', list.DragSearchData);
 
+// 布局 - 分块收缩
+Mock.mock(/api\/BlockShrink/, 'get', list.rulesDemo);
+
 // 响应时间设置
 Mock.setup({ timeout: '100-1000' });

@@ -4,7 +4,16 @@
 
 /* Row 栅格
 -------------------------- */
+.el-row, .el-col {
+  height: 100%;
+}
 
+// 高度设定
+@for $i from 1 through 9 {
+  .el-row > .el-col[full="#{$i}0%"] {
+    height: calc(#{$i}0% - #{$padding / 2});
+  }
+}
 
 
 /* Radio 单选框
@@ -168,6 +177,10 @@
     .el-table_1_column_#{$index} div.cell {
       white-space: nowrap;
     }
+  }
+
+  .has-gutter th {
+    background-color: #eef1f6;
   }
 
   // 表格单元格尺寸
@@ -339,14 +352,16 @@
 /* Card 卡片
 -------------------------- */
 .el-card {
-
   &[full] {
     height: 100%;
-    .el-card__body {
-      height: calc(100% - 50px );
-      .el-table[full] {
-        min-height: calc(100% - 72px)
-      }
+    > .el-card__body {
+      height: 100%;
+    }
+  }
+  &[full="1"] .el-card__body {
+    height: calc(100% - 50px );
+    .el-table[full] {
+      min-height: calc(100% - 72px)
     }
   }
 
