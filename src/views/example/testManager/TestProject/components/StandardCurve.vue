@@ -94,8 +94,8 @@
           </el-col>
           <el-col :span="12">
             <el-form-item label="曲线类型：">
-              <el-radio v-model="itemModel.curveType" label="1">直线型</el-radio>
-              <el-radio v-model="itemModel.curveType" label="2">Log型</el-radio>
+              <el-radio v-model="itemModel.curveType" label="1">直线</el-radio>
+              <el-radio v-model="itemModel.curveType" label="2">Log</el-radio>
             </el-form-item>
           </el-col>
           <el-col :span="12">

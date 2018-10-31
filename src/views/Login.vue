@@ -1,71 +1,41 @@
 <template>
-  <el-row class="bg login-wrap">
-    <el-col :span="16" class="container">
-      <div class="container-center title-center">
-        <h1>登录标题一</h1>
-        <h3>系统小标题</h3>
-      </div>
+  <el-row class="login-wrap">
+    <el-col :xs="12" :sm="14" :md="16" :lg="18" class="col-left">
+      <h1 class="title">
+        <span>LIMS 管理系统模板</span>
+        <p>基于 Element UI 的 LIMS 管理系统模板</p>
+      </h1>
     </el-col>
-    <el-col :span="8" class="container">
-      <div class="over-color">
-        <el-form class="login-form" ref="loginForm" :model="loginModel">
-          <h3 class="title">System Login</h3>
-          <el-form-item prop="username">
-            <el-input v-model="loginModel.username" clearable :autofocus="!loginModel.username">
-              <i slot="prefix" class="fas fa-user"></i>
-            </el-input>
-          </el-form-item>
-          <el-form-item prop="password">
-            <el-input v-model="loginModel.password" :type="isSee ? 'text' : 'password'">
-              <i slot="prefix" class="fas fa-key"></i>
-              <i slot="suffix" :class="`el-input__icon fas fa-${isSee ? 'eye' : 'eye-slash'}`"
-                @click="isSee = !isSee"></i>
-            </el-input>
-          </el-form-item>
-          <el-checkbox v-model="loginModel.remember" class="remember">Remember Me</el-checkbox>
+    <el-col :xs="12" :sm="10" :md="8" :lg="6" class="col-right">
+      <el-form class="login-form" ref="form" :model="itemModel" size="medium">
+        <h2 class="title">登录账号</h2>
+        <el-form-item prop="username">
+          <el-input v-model="itemModel.username" clearable :autofocus="!itemModel.username">
+            <i slot="prefix" class="fas fa-user"></i>
+          </el-input>
+        </el-form-item>
+        <el-form-item prop="password" class="mar-t-md">
+          <el-input v-model="itemModel.password" :type="isSee ? 'text' : 'password'">
+            <i slot="prefix" class="fas fa-key"></i>
+            <i slot="suffix" :class="`el-input__icon fas fa-${isSee ? 'eye' : 'eye-slash'}`"
+              @click="isSee = !isSee"></i>
+          </el-input>
+        </el-form-item>
+        <el-form-item>
+          <el-checkbox v-model="itemModel.remember">下次自动登录</el-checkbox>
+        </el-form-item>
+        <el-form-item>
           <el-button
             type="primary"
             style="width: 100%"
             :loading="loading"
             :disabled="isLoginValid"
-            @click.native.prevent="onClickLogin()">Sign in
+            @click="onClickLogin()">{{ `登录${loading ? '中' : ''}` }}
           </el-button>
-          <div class="qr">第三方登陆：
-            <i class="fab fa-qq"></i>
-            <i class="fab fa-weixin"></i>
-          </div>
-        </el-form>
-      </div>
+        </el-form-item>
+      </el-form>
     </el-col>
   </el-row>
-  <!-- <div class="login-wrap">
-    <el-form class="login-form" ref="loginForm" :model="loginModel">
-      <h3 class="title">System Login</h3>
-      <el-form-item prop="username">
-        <el-input v-model="loginModel.username" clearable :autofocus="!loginModel.username">
-          <i slot="prefix" class="fas fa-user"></i>
-        </el-input>
-      </el-form-item>
-      <el-form-item prop="password">
-        <el-input v-model="loginModel.password" :type="isSee ? 'text' : 'password'">
-          <i slot="prefix" class="fas fa-key"></i>
-          <i slot="suffix" :class="`el-input__icon fas fa-${isSee ? 'eye' : 'eye-slash'}`" @click="isSee = !isSee"></i>
-        </el-input>
-      </el-form-item>
-      <el-checkbox v-model="loginModel.remember" class="remember">Remember Me</el-checkbox>
-      <el-button
-        type="primary"
-        style="width: 100%"
-        :loading="loading"
-        :disabled="isLoginValid"
-        @click.native.prevent="onClickLogin()">Sign in
-      </el-button>
-      <div class="qr">第三方登陆：
-        <i class="fab fa-qq"></i>
-        <i class="fab fa-weixin"></i>
-      </div>
-    </el-form>
-  </div> -->
 </template>
 
 <script>
@@ -75,7 +45,7 @@ export default {
     return {
       isSee: false,
       loading: false,
-      loginModel: {
+      itemModel: {
         password: '11111',
         username: 'sinoyd',
         // remember: false,
@@ -84,15 +54,15 @@ export default {
   },
   computed: {
     isLoginValid() {
-      return !this.loginModel.username || !this.loginModel.password;
+      return !this.itemModel.username || !this.itemModel.password;
     },
   },
   methods: {
     onClickLogin() {
-      this.$refs.loginForm.validate((valid) => {
+      this.$refs.form.validate((valid) => {
         if (!valid) return;
         this.loading = true;
-        this.$store.dispatch('auth/Login', this.loginModel)
+        this.$store.dispatch('auth/Login', this.itemModel)
           .then(() => {
             this.$router.push('/');
           })
@@ -104,89 +74,3 @@ export default {
   },
 };
 </script>
-
-<style scoped lang="scss">
-  // login
-  $login-bg: #2d3a4b;
-  $login-drak: #889aa4;
-  $login-light: #eee;
-
-  .bg {
-    background: url('../assets/bg.jpg') no-repeat fixed center;
-    background-size: cover;
-  }
-  .container {
-    position: relative;
-    height: 100%;
-    >.over-color {
-      background-color: #889aa477;
-      height: 100%;
-      width: 100%;
-    }
-  }
-  .container-center {
-    width: 100%;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    &.title-center {
-      text-align: center;
-    }
-     form {
-      margin: 20px;
-    }
-  }
-  .login-wrap {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background-color: $login-bg;
-  }
-  .login-wrap .title {
-    margin: 0 auto 40px;
-    font-size: 26px;
-    font-weight: 400;
-    text-align: center;
-    color: $login-light;
-  }
-  .login-wrap .login-form {
-    position: absolute;
-    left: 0;
-    right: 0;
-    width: 350px;
-    padding: 35px 35px 15px 35px;
-    margin: 120px auto;
-  }
-  .login-wrap input {
-    color: $login-light;
-    background: transparent;
-    border: none;
-    border-radius: 0;
-    -webkit-appearance: none;
-    &:-webkit-autofill {
-      box-shadow: 0 0 0px 1000px $login-bg inset !important;
-      -webkit-text-fill-color: #fff !important;
-    }
-  }
-  .login-wrap .remember {
-    margin-bottom: 20px;
-    color: #eee;
-  }
-  .login-wrap .qr {
-    margin-top: 10px;
-    line-height: 40px;
-    color: #eee;
-    .fab {
-      font-size: 20px;
-      margin-left: 20px;
-      cursor: pointer;
-    }
-    .fa-qq {
-      color: #66B1FF;
-    }
-    .fa-weixin {
-      color: #91DE59;
-    }
-  }
-</style>

@@ -3,10 +3,10 @@
 export default {
   // 规则案例
   rulesDemo: {
-    'rows|1-15': [
+    'rows|30-50': [
       {
         'personId': '@increment(1)',                  // Guid
-        'cName': '@cname',                            // 性名
+        'cName': '@cname',                            // 姓名
         'userNO': '@word(1, 2)',                      // 用户编号
         'domainId': '@cword(4, 7)',                   // 办公室
         'eName': '@name',                             // 英文名

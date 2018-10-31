@@ -1,9 +1,55 @@
 // 自定义样式
 
+/* Login 登录页
+ * @see views/auth/Login.vue
+-------------------------- */
+$login-bg: #333;
+$login-drak: #889aa4;
+$login-light: #eee;
+
+.login-wrap {
+  width: 100%;
+  height: 100%;
+  background: {
+    color: $login-bg;
+    size: cover;
+    repeat: no-repeat;
+    attachment: fixed;
+    position: center;
+    image: url('../assets/bg.jpg');
+  };
+  .col-left {
+    padding: 25vh 15px 0;
+    text-align: center;
+    color: #000;
+    font-size: 24px;
+    span { font-weight: bold; }
+    p { font-size: .6em; }
+  }
+  .col-right {
+    padding: 20vh 15px 0;
+    height: 100%;
+    color: #fff;
+    background-color: rgba($color: $login-bg, $alpha: .4);
+    h2.title {
+      line-height: 80px;
+      font-weight: bold;
+    }
+  }
+  .el-input__prefix { left: 15px; }
+  .el-input--prefix .el-input__inner { padding-left: 40px; }
+  .el-input__suffix { cursor: pointer; }
+  .el-checkbox { color: #fff !important; }
+}
+
+
+
 /* projectPmgressbar 项目进度条
  * @see views/grid/projectPmgressbar.vue
 -------------------------- */
-.progress-success, .progress-warning, .progress-danger {
+.progress-success,
+.progress-warning,
+.progress-danger {
   margin-left: -10px;
   margin-right: -5px;
   color: transparent;
@@ -11,3 +57,25 @@
 .progress-success { background-color: $--color-success; }
 .progress-warning { background-color:$--color-warning; }
 .progress-danger { background-color: $--color-danger; }
+
+
+
+/* DragSearchData 数据拖拽
+ * @see views/grid/DragSearchData.vue
+-------------------------- */
+.ghost {
+  opacity: 0.5;
+  background: #c8ebfb;
+}
+.list-group, .list-group > span {
+  display: block;
+  min-height: 30px;
+}
+.list-group-item {
+  margin-bottom: 2px;
+  padding: 0 10px;
+  line-height: 30px;
+  border: 1px solid #ccc;
+  background-color: #f8f8f8;
+  cursor: move;
+}

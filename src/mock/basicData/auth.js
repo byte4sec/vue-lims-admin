@@ -5,7 +5,7 @@ export default {
   },
   // 用户信息
   getUser: {
-    moduleUrl: '小彩蛋',
+    name: '小彩蛋',
     roles: ['admin'],
   },
   // 刷新 token
@@ -14,7 +14,8 @@ export default {
       'token|12': '@word',
     },
   },
-  menus: {
+  // 获取侧栏菜单
+  getMenus: {
     data: [
       {
         moduleUrl: '',

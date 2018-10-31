@@ -16,6 +16,7 @@ import dynamicParam from './operData/dynamicParam';
 // auth 登录相关
 Mock.mock(/login/, 'post', auth.login);
 Mock.mock(/getUser/, 'get', auth.getUser);
+Mock.mock(/getMenus/, 'get', auth.getMenus);
 
 // 表单 - 动态参数显示
 Mock.mock(/getTableData/, 'get', dynamicParam.getTableData);
@@ -48,6 +49,9 @@ Mock.mock(/api\/operateTree/, 'get', list.operateTree);
 
 // 布局 - 拖拽与检索数据
 Mock.mock(/api\/dragSearchData/, 'get', list.DragSearchData);
+
+// 布局 - 分块收缩
+Mock.mock(/api\/BlockShrink/, 'get', list.rulesDemo);
 
 // 响应时间设置
 Mock.setup({ timeout: '100-1000' });

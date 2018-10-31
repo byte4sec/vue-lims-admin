@@ -1,5 +1,5 @@
 <template>
-  <el-row :gutter="10" v-move>
+  <el-row :gutter="10">
     <el-col :span="12">
       <el-card class="title-card">
         <template slot="header">待选</template>
@@ -137,22 +137,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-  .ghost {
-    opacity: 0.5;
-    background: #c8ebfb;
-  }
-  .list-group, .list-group > span {
-    display: block;
-    min-height: 30px;
-  }
-  .list-group-item {
-    margin-bottom: 2px;
-    padding: 0 10px;
-    line-height: 30px;
-    border: 1px solid #ccc;
-    background-color: #f8f8f8;
-    cursor: move;
-  }
-</style>
